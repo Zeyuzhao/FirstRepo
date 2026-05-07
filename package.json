@@ -1,0 +1,21 @@
+{
+  "name": "firstrepo-flappy-bird",
+  "version": "1.0.0",
+  "description": "A fun Flappy Bird game demo",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "flappy-bird",
+    "game",
+    "demo"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
