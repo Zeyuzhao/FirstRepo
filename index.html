@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weekly Operations Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dashboard-shell">
+      <header class="page-header" aria-labelledby="dashboard-title">
+        <div>
+          <p class="eyebrow">Weekly performance</p>
+          <h1 id="dashboard-title">Support and fulfillment executive dashboard</h1>
+          <p class="header-copy">
+            A compact view of ticket health, response speed, order backlog, and late fulfillment
+            risk for the current operating week.
+          </p>
+        </div>
+        <div class="week-chip" aria-label="Reporting period">
+          <span>Week ending</span>
+          <strong id="weekEnding">May 15, 2026</strong>
+        </div>
+      </header>
+
+      <section class="source-banner" aria-label="Data source note">
+        <div class="source-icon" aria-hidden="true">DB</div>
+        <div>
+          <h2>Mock data preview</h2>
+          <p>
+            No SQL connection is configured in this sandbox, so this dashboard is rendered from a
+            small in-code mock dataset.
+          </p>
+        </div>
+      </section>
+
+      <section class="metric-grid" id="metricGrid" aria-label="Key weekly metrics"></section>
+
+      <section class="panel-grid" aria-label="Dashboard charts">
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Support</p>
+              <h2>Tickets by status</h2>
+            </div>
+            <span class="panel-note" id="ticketTotal"></span>
+          </div>
+          <div class="bar-chart" id="ticketStatusChart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Support</p>
+              <h2>Average response time</h2>
+            </div>
+            <span class="panel-note">SLA target: 2.0h</span>
+          </div>
+          <div class="line-chart" id="responseChart"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Fulfillment</p>
+              <h2>Order backlog</h2>
+            </div>
+            <span class="panel-note" id="backlogTotal"></span>
+          </div>
+          <div class="backlog-list" id="backlogChart"></div>
+        </article>
+
+        <article class="panel late-orders-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Fulfillment</p>
+              <h2>Late orders</h2>
+            </div>
+            <span class="panel-note" id="lateOrderTotal"></span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Order</th>
+                  <th scope="col">Account</th>
+                  <th scope="col">Stage</th>
+                  <th scope="col">Days late</th>
+                  <th scope="col">Owner</th>
+                </tr>
+              </thead>
+              <tbody id="lateOrdersTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
