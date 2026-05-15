@@ -1,4 +1,3 @@
-FirstRepo
-=========
+# FirstRepo
 
-This is awesome.
+A small Next.js recreation of a usage breakdown bar chart.
