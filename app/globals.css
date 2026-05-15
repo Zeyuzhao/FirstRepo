@@ -1,0 +1,51 @@
+:root {
+  color-scheme: light;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: #f6f8fb;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: radial-gradient(circle at 20% 20%, #ffffff 0%, #ffecec 45%, #ffd5d5 100%);
+}
+
+.card {
+  width: min(640px, 100%);
+  padding: 2rem;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #dbe3f3;
+  box-shadow: 0 12px 35px rgba(32, 54, 102, 0.12);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+  line-height: 1.55;
+}
