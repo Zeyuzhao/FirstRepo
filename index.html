@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Operations Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">April 1-5, 2026</p>
+        <h1>Operations dashboard</h1>
+        <p class="header-copy">Order volume, fulfillment, late orders, revenue, and refunds from the latest CSV snapshot.</p>
+      </div>
+      <div class="status-panel" aria-label="Dashboard summary">
+        <span class="status-label">Data source</span>
+        <strong>20 rows</strong>
+        <span>2 regions, 2 channels</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="metric-grid" aria-label="Key metrics">
+        <article class="metric-card">
+          <span>Total orders</span>
+          <strong id="total-orders">-</strong>
+          <small id="order-window">Across 5 days</small>
+        </article>
+        <article class="metric-card">
+          <span>Fulfillment rate</span>
+          <strong id="fulfillment-rate">-</strong>
+          <small id="fulfilled-orders">Fulfilled orders</small>
+        </article>
+        <article class="metric-card">
+          <span>Late orders</span>
+          <strong id="late-orders">-</strong>
+          <small id="late-rate">Share of all orders</small>
+        </article>
+        <article class="metric-card">
+          <span>Net revenue</span>
+          <strong id="net-revenue">-</strong>
+          <small id="refund-share">Refund share</small>
+        </article>
+      </section>
+
+      <section class="charts-grid" aria-label="Operations charts">
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <h2>Daily order volume</h2>
+              <p>Total orders received each day.</p>
+            </div>
+            <span class="chart-badge" id="best-order-day">-</span>
+          </div>
+          <div class="chart-shell" id="daily-volume-chart" role="img" aria-label="Bar chart showing daily order volume"></div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <h2>Fulfillment rate by channel</h2>
+              <p>Fulfilled orders divided by total orders.</p>
+            </div>
+          </div>
+          <div class="chart-shell compact-chart" id="fulfillment-chart" role="img" aria-label="Horizontal bar chart showing fulfillment rate by channel"></div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <h2>Late orders by region</h2>
+              <p>Late orders split by Web and Marketplace.</p>
+            </div>
+          </div>
+          <div class="chart-shell compact-chart" id="late-region-chart" role="img" aria-label="Stacked horizontal bar chart showing late orders by region"></div>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="chart-heading">
+            <div>
+              <h2>Revenue vs refunds</h2>
+              <p>Revenue bars use the left scale. Refund line uses the right scale.</p>
+            </div>
+            <span class="chart-badge" id="refund-peak">-</span>
+          </div>
+          <div class="chart-shell" id="money-chart" role="img" aria-label="Combined chart showing revenue and refunds by day"></div>
+        </article>
+      </section>
+
+      <section class="detail-grid" aria-label="Operational details">
+        <article class="notes-panel">
+          <h2>What stands out</h2>
+          <ul id="insight-list"></ul>
+        </article>
+
+        <article class="table-panel">
+          <div class="table-heading">
+            <h2>Daily totals</h2>
+            <span id="avg-handle">-</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Orders</th>
+                  <th>Fulfilled</th>
+                  <th>Late</th>
+                  <th>Revenue</th>
+                  <th>Refunds</th>
+                </tr>
+              </thead>
+              <tbody id="daily-table"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
