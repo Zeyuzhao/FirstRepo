@@ -18,7 +18,7 @@ body {
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: radial-gradient(circle at 20% 20%, #ffffff 0%, #eef3ff 45%, #dde7ff 100%);
+  background: radial-gradient(circle at 20% 20%, #ffffff 0%, #ffe9e9 45%, #ffd3d3 100%);
 }
 
 .card {
