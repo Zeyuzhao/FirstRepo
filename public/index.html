@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Data Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Production SQL</p>
+          <h1>Employee Data Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="status-pill" id="status-pill">Loading</div>
+          <button id="refresh-button" type="button" aria-label="Refresh dashboard data">
+            <span aria-hidden="true">&#8635;</span>
+            Refresh
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="metrics-grid" aria-label="Employee summary">
+          <article class="metric-card">
+            <span class="metric-label">Active employees</span>
+            <strong id="active-employees">--</strong>
+            <span class="metric-note" id="active-rate">--</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Total records</span>
+            <strong id="total-employees">--</strong>
+            <span class="metric-note" id="hire-range">--</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Avg salary</span>
+            <strong id="avg-salary">--</strong>
+            <span class="metric-note" id="median-salary">--</span>
+          </article>
+          <article class="metric-card">
+            <span class="metric-label">Departments</span>
+            <strong id="departments-count">--</strong>
+            <span class="metric-note" id="titles-count">--</span>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel panel-wide">
+            <div class="panel-header">
+              <div>
+                <h2>Department Headcount</h2>
+                <p>Active assignments by department</p>
+              </div>
+              <span class="panel-chip" id="department-total">--</span>
+            </div>
+            <div class="department-list" id="department-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Gender Mix</h2>
+                <p>Active employees</p>
+              </div>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" id="gender-donut"></div>
+              <div class="legend" id="gender-legend"></div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Current Titles</h2>
+                <p>Active title records</p>
+              </div>
+            </div>
+            <div class="ranked-list" id="title-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Salary Bands</h2>
+                <p>Current salary records</p>
+              </div>
+            </div>
+            <div class="bar-chart" id="salary-chart"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Hiring Trend</h2>
+                <p>Employee hire year</p>
+              </div>
+            </div>
+            <div class="timeline-chart" id="hiring-chart"></div>
+          </article>
+
+          <article class="panel panel-wide">
+            <div class="panel-header">
+              <div>
+                <h2>Department Salary Comparison</h2>
+                <p>Average current salary by department</p>
+              </div>
+            </div>
+            <div class="salary-table" id="department-salary-table"></div>
+          </article>
+        </section>
+      </main>
+
+      <footer>
+        <span id="data-freshness">Waiting for data</span>
+        <span>Aggregate records only</span>
+      </footer>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
