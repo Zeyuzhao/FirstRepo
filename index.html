@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Operations Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Read-only Postgres aggregate snapshot</p>
+        <h1>Employee Operations Dashboard</h1>
+      </div>
+      <div class="header-meta">
+        <span>employees schema</span>
+        <strong>Updated May 16, 2026 UTC</strong>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-grid" id="summaryGrid" aria-label="Employee summary"></section>
+
+      <section class="insight-band">
+        <div class="chart-panel wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Active workforce</p>
+              <h2>Department distribution</h2>
+            </div>
+            <label class="metric-select">
+              <span>Metric</span>
+              <select id="departmentMetric">
+                <option value="headcount">Headcount</option>
+                <option value="avgSalary">Average salary</option>
+                <option value="pctFemale">Female share</option>
+              </select>
+            </label>
+          </div>
+          <div class="bar-list" id="departmentBars"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Current titles</p>
+              <h2>Role mix</h2>
+            </div>
+          </div>
+          <div class="rank-list" id="titleRanks"></div>
+        </div>
+      </section>
+
+      <section class="detail-grid">
+        <div class="chart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Current salaries</p>
+              <h2>Salary bands</h2>
+            </div>
+          </div>
+          <div class="column-chart" id="salaryBands"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Active employees</p>
+              <h2>Gender balance</h2>
+            </div>
+          </div>
+          <div id="genderBalance"></div>
+        </div>
+
+        <div class="chart-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Hiring history</p>
+              <h2>Annual hires</h2>
+            </div>
+          </div>
+          <div class="line-chart" id="hireTrend"></div>
+        </div>
+      </section>
+
+      <section class="table-section">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Department metrics</p>
+            <h2>Current workforce table</h2>
+          </div>
+          <div class="source-note">No employee-level rows are embedded.</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Headcount</th>
+                <th>Average salary</th>
+                <th>Female share</th>
+                <th>Average tenure</th>
+              </tr>
+            </thead>
+            <tbody id="departmentTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
