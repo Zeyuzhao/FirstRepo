@@ -46,8 +46,8 @@ const dashboardData = {
     { band: "110k+", employees: 6888 },
   ],
   gender: [
-    { gender: "Female", employees: 96010, color: "#9d4d3a" },
-    { gender: "Male", employees: 144114, color: "#177b73" },
+    { gender: "Female", employees: 96010, color: "#0f766e" },
+    { gender: "Male", employees: 144114, color: "#2563eb" },
   ],
   hireTrend: [
     { year: 1985, hires: 35316 },
@@ -75,7 +75,7 @@ const dashboardData = {
   ],
 };
 
-const colors = ["#177b73", "#c77d24", "#70577a", "#9d4d3a", "#557a3b", "#45636c"];
+const colors = ["#2563eb", "#0f766e", "#d97706", "#7c3aed", "#be123c", "#0891b2"];
 
 const numberFormatter = new Intl.NumberFormat("en-US");
 const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -240,13 +240,13 @@ function renderHireTrend() {
 
   document.getElementById("hireTrend").innerHTML = `
     <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Annual hires from ${minYear} to ${maxYear}">
-      <polygon points="${areaPoints}" fill="rgba(23, 123, 115, 0.16)"></polygon>
-      <polyline points="${points}" fill="none" stroke="#177b73" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <polygon points="${areaPoints}" fill="rgba(37, 99, 235, 0.12)"></polygon>
+      <polyline points="${points}" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></polyline>
       ${rows
         .map((row, index) => {
           const x = padding + (index / (rows.length - 1)) * (width - padding * 2);
           const y = height - padding - (row.hires / max) * (height - padding * 2);
-          return `<circle cx="${x}" cy="${y}" r="4" fill="#fffdf8" stroke="#177b73" stroke-width="3"><title>${row.year}: ${formatNumber(row.hires)} hires</title></circle>`;
+          return `<circle cx="${x}" cy="${y}" r="4" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"><title>${row.year}: ${formatNumber(row.hires)} hires</title></circle>`;
         })
         .join("")}
     </svg>
