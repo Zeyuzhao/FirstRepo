@@ -1,191 +1,374 @@
 .page {
-  --background: #f7f8f4;
-  --foreground: #171a1c;
-  --muted: #586069;
+  --background: #f4f6f1;
+  --foreground: #182025;
+  --muted: #63707a;
   --surface: #ffffff;
-  --surface-strong: #e7f0ea;
-  --border: #d7ded8;
-  --accent: #126a51;
-  --accent-soft: #d9efe6;
-  --blue-soft: #d9e7f7;
+  --surface-muted: #eef2ef;
+  --border: #d8ded9;
+  --accent: #0f7a5c;
+  --accent-soft: #dcefe8;
+  --blue: #285b9f;
+  --blue-soft: #e3ecf8;
+  --amber: #a86600;
+  --amber-soft: #f5ead8;
+  --rose: #a83c55;
+  --rose-soft: #f5dee5;
 
   min-height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-rows: minmax(520px, 1fr) auto;
   gap: 24px;
   padding: 32px;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background);
+  background:
+    linear-gradient(180deg, #ffffff 0%, var(--background) 42%),
+    var(--background);
   color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.hero {
+.topBar {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1180px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 56px;
-  align-content: center;
-}
-
-.brandRow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.heroGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
-  align-items: center;
-  gap: 56px;
-}
-
-.copy {
-  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 24px;
+  align-items: start;
 }
 
-.kicker {
+.eyebrow {
   color: var(--accent);
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.copy h1 {
-  max-width: 720px;
-  font-size: 64px;
-  line-height: 72px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0;
-  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.topBar h1 {
+  max-width: 760px;
+  margin-top: 12px;
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: 0;
 }
 
 .summary {
-  max-width: 620px;
+  max-width: 760px;
+  margin-top: 16px;
   color: var(--muted);
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 18px;
+  line-height: 30px;
 }
 
-.previewPanel {
-  min-height: 220px;
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.livePill,
+.button,
+.ghostButton {
+  min-height: 40px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.livePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.liveDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+
+.pausedDot {
+  background: var(--amber);
+  box-shadow: 0 0 0 6px var(--amber-soft);
+}
+
+.button,
+.ghostButton {
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.button {
+  border: 1px solid var(--foreground);
+  background: var(--foreground);
+  color: #ffffff;
+}
+
+.ghostButton {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.button:disabled,
+.ghostButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.statusLine {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.error {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  border: 1px solid var(--rose);
+  border-radius: 8px;
+  background: var(--rose-soft);
+  color: var(--rose);
+  font-weight: 700;
+}
+
+.metricsGrid,
+.dashboardGrid {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   display: grid;
-  align-content: end;
-  gap: 24px;
-  padding: 28px;
+  gap: 14px;
+}
+
+.metricsGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metricCard,
+.panel {
   border: 1px solid var(--border);
   border-radius: 8px;
-  background:
-    linear-gradient(135deg, var(--surface-strong), var(--blue-soft)),
-    var(--surface);
+  background: var(--surface);
+  box-shadow: 0 14px 36px rgba(24, 32, 37, 0.06);
 }
 
-.previewIcon {
-  opacity: 0.78;
+.metricCard {
+  min-height: 136px;
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
+  padding: 20px;
 }
 
-.previewPanel div {
+.metricCard span,
+.panelHeader span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.metricCard strong {
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.metricCard small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dashboardGrid {
+  grid-template-columns: 360px minmax(0, 1fr);
+  align-items: start;
+}
+
+.panel {
+  overflow: hidden;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-muted);
+}
+
+.panelHeader strong {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.regionList {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  list-style: none;
+}
+
+.regionRow {
   display: grid;
   gap: 8px;
 }
 
-.statusLabel,
-.stackCard span {
+.regionMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.regionMeta strong {
+  font-size: 15px;
+}
+
+.barTrack {
+  width: 100%;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--blue-soft);
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  min-width: 8px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--blue), var(--accent));
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.table th {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.previewPanel strong {
-  max-width: 220px;
-  font-size: 28px;
-  line-height: 34px;
+.table td:last-child,
+.table th:last-child {
+  text-align: right;
 }
 
-.stackGrid {
+.statusChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.queued {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.processing {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.review {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.complete {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.skeleton {
   width: 100%;
-  max-width: 1120px;
+  max-width: 1180px;
+  min-height: 420px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.stackCard {
-  display: grid;
-  gap: 14px;
-  min-height: 128px;
-  padding: 20px;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: var(--surface);
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent),
+    var(--surface-muted);
 }
 
-.stackCard strong {
-  font-size: 24px;
-  line-height: 30px;
-}
-
-@media (max-width: 860px) {
+@media (max-width: 920px) {
   .page {
-    grid-template-rows: auto auto;
     padding: 24px;
   }
 
-  .hero {
-    gap: 40px;
-  }
-
-  .heroGrid {
+  .topBar,
+  .dashboardGrid {
     grid-template-columns: 1fr;
   }
 
-  .copy h1 {
-    font-size: 48px;
-    line-height: 56px;
+  .toolbar {
+    justify-content: flex-start;
   }
 
-  .previewPanel {
-    min-height: 180px;
-  }
-
-  .stackGrid {
+  .metricsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .topBar h1 {
+    font-size: 42px;
+    line-height: 50px;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
   .page {
-    padding: 20px;
+    padding: 18px;
   }
 
-  .brandRow {
-    align-items: flex-start;
-    flex-direction: column;
+  .metricsGrid {
+    grid-template-columns: 1fr;
   }
 
-  .copy {
-    gap: 16px;
-  }
-
-  .copy h1 {
-    font-size: 38px;
-    line-height: 46px;
+  .topBar h1 {
+    font-size: 34px;
+    line-height: 42px;
   }
 
   .summary {
-    font-size: 18px;
-    line-height: 30px;
-  }
-
-  .stackGrid {
-    grid-template-columns: 1fr;
+    font-size: 16px;
+    line-height: 26px;
   }
 }
