@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Employees SQL Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Live SQL table dashboard</p>
+          <h1 id="page-title">employees.employee</h1>
+          <p class="summary">
+            Read-only Postgres metrics, current department distribution, hire trends, and the newest
+            rows in the employee table.
+          </p>
+        </div>
+        <div class="status-panel" aria-live="polite">
+          <div class="status-row">
+            <span class="pulse" id="stream-pulse"></span>
+            <span id="connection-status">Connecting</span>
+          </div>
+          <dl>
+            <div>
+              <dt>Updated</dt>
+              <dd id="updated-at">--</dd>
+            </div>
+            <div>
+              <dt>Refresh</dt>
+              <dd id="refresh-rate">--</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="metrics-grid" id="metrics" aria-label="Key metrics"></section>
+
+      <section class="dashboard-grid" aria-label="Dashboard charts">
+        <article class="panel span-2">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Hiring trend</p>
+              <h2>Rows by hire year</h2>
+            </div>
+          </div>
+          <div class="bar-chart" id="hire-trend"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Breakdown</p>
+              <h2>Gender</h2>
+            </div>
+          </div>
+          <div class="donut-wrap">
+            <div class="donut" id="gender-donut" aria-hidden="true"></div>
+            <div class="legend" id="gender-legend"></div>
+          </div>
+        </article>
+
+        <article class="panel span-3">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Current assignments</p>
+              <h2>Employees by department</h2>
+            </div>
+          </div>
+          <div class="rank-list" id="departments"></div>
+        </article>
+      </section>
+
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="panel-heading table-heading">
+          <div>
+            <p class="panel-kicker">Newest rows</p>
+            <h2 id="table-title">employee table feed</h2>
+          </div>
+          <div class="schema-pill" id="schema-pill">schema loading</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Hire date</th>
+                <th scope="col">Current department</th>
+              </tr>
+            </thead>
+            <tbody id="employee-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
