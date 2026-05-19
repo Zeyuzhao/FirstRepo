@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Test SVG</title>
+  <desc id="desc">A simple test SVG with a circle, rectangle, and label.</desc>
+  <rect width="320" height="180" fill="#f7fafc"/>
+  <rect x="24" y="24" width="272" height="132" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="4"/>
+  <circle cx="96" cy="90" r="36" fill="#22c55e"/>
+  <text x="152" y="98" fill="#111827" font-family="Arial, sans-serif" font-size="28" font-weight="700">Test SVG</text>
+</svg>
