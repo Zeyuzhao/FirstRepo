@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FirstRepo Flask Starter</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <main>
+            <section class="panel" aria-labelledby="page-title">
+                <p class="eyebrow">Flask is running</p>
+                <h1 id="page-title">FirstRepo Flask Starter</h1>
+                <p class="summary">
+                    This project is ready for routes, templates, static assets, and tests.
+                </p>
+                <div class="actions">
+                    <a class="button" href="/healthz">Health check</a>
+                    <a class="button secondary" href="https://flask.palletsprojects.com/" rel="noreferrer">Flask docs</a>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
