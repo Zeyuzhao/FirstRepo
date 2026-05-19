@@ -1,10 +1,10 @@
 :root {
   color-scheme: light;
-  --bg: #f3f6ff;
-  --card-bg: #ffffff;
-  --text: #112042;
-  --muted: #4a5a81;
-  --accent: #0057ff;
+  --bg: #b91c1c;
+  --card-bg: #fff7f7;
+  --text: #3f0f0f;
+  --muted: #7f1d1d;
+  --accent: #dc2626;
 }
 
 * {
@@ -17,10 +17,7 @@ body {
   padding: 0;
   min-height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background:
-    radial-gradient(circle at top right, #dfe8ff 0, transparent 40%),
-    radial-gradient(circle at bottom left, #d8f1ff 0, transparent 45%),
-    var(--bg);
+  background: linear-gradient(135deg, #7f1d1d 0%, var(--bg) 55%, #ef4444 100%);
   color: var(--text);
 }
 
@@ -34,9 +31,10 @@ body {
 .card {
   width: min(640px, 100%);
   background: var(--card-bg);
-  border-radius: 14px;
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  border-radius: 8px;
   padding: 2rem;
-  box-shadow: 0 20px 48px rgba(17, 32, 66, 0.14);
+  box-shadow: 0 20px 48px rgba(63, 15, 15, 0.24);
 }
 
 .eyebrow {
