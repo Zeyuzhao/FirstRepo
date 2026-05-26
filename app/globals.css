@@ -1,9 +1,11 @@
 :root {
-  color-scheme: light;
-  --background: #f7f8fb;
-  --foreground: #1d2433;
-  --muted: #65728a;
-  --accent: #2563eb;
+  --bg: #f3efe5;
+  --bg-alt: #fcf9f2;
+  --text: #233127;
+  --muted: #4a5f53;
+  --accent: #2f7a4c;
+  --accent-strong: #1f5a37;
+  --border: #d5ddcf;
 }
 
 * {
@@ -12,56 +14,164 @@
 
 html,
 body {
-  min-height: 100%;
   margin: 0;
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 0%, #ffffffb3 0, transparent 40%),
+    linear-gradient(160deg, var(--bg) 0%, #e8f0e4 100%);
 }
 
-code {
-  border-radius: 4px;
-  background: #e8edf5;
-  padding: 0.15rem 0.35rem;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.95em;
+.site {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
 }
 
-.page {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-  padding: 2rem;
-}
-
-.intro {
-  max-width: 680px;
+.hero {
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fefcf8, #eef5eb);
+  box-shadow: 0 14px 40px #1b2c1f1a;
 }
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--accent);
-  font-size: 0.875rem;
+  color: var(--accent-strong);
+  font-size: 0.8rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 6vw, 4.75rem);
-  line-height: 1;
+  font-size: clamp(2rem, 5vw, 4.1rem);
+  line-height: 1.06;
 }
 
-.summary {
-  max-width: 34rem;
-  margin: 1.5rem 0 0;
+.lede {
+  margin-top: 1.1rem;
+  max-width: 62ch;
   color: var(--muted);
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.heroActions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.72rem 1.2rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 160ms ease;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: var(--accent-strong);
+}
+
+.button.secondary {
+  border-color: var(--border);
+  color: var(--text);
+  background: #fff8;
+}
+
+.collections {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-alt);
+  padding: 1.2rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.inquiryWrap {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.inquiryIntro h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+}
+
+.inquiryIntro p {
+  margin-top: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.inquiryForm {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fffdf9;
+}
+
+.inquiryForm label {
+  font-weight: 600;
+}
+
+.inquiryForm input,
+.inquiryForm select,
+.inquiryForm textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.68rem 0.75rem;
+  font: inherit;
+}
+
+.inquiryForm textarea {
+  resize: vertical;
+}
+
+@media (max-width: 860px) {
+  .collections,
+  .inquiryWrap {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 1.6rem;
+  }
 }
