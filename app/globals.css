@@ -1,9 +1,14 @@
 :root {
   color-scheme: light;
-  --background: #f7f8fb;
-  --foreground: #1d2433;
-  --muted: #65728a;
-  --accent: #2563eb;
+  --background: #f4f6f8;
+  --foreground: #182230;
+  --muted: #667085;
+  --accent: #0f766e;
+  --accent-soft: #d9f3ef;
+  --border: #d9e2ec;
+  --panel: #ffffff;
+  --warning: #9a3412;
+  --warning-soft: #fff4e5;
 }
 
 * {
@@ -25,43 +30,161 @@ body {
     sans-serif;
 }
 
-code {
-  border-radius: 4px;
-  background: #e8edf5;
-  padding: 0.15rem 0.35rem;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  font-size: 0.95em;
-}
-
 .page {
-  display: grid;
+  width: 100%;
   min-height: 100vh;
-  place-items: center;
-  padding: 2rem;
+  padding: 32px;
 }
 
-.intro {
-  max-width: 680px;
+.dashboard {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
 }
 
 .eyebrow {
-  margin: 0 0 0.75rem;
+  margin: 0 0 8px;
   color: var(--accent);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 6vw, 4.75rem);
+  font-size: 2.25rem;
+  line-height: 1.12;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+.status-badge {
+  flex: 0 0 auto;
+  border: 1px solid #f5c58b;
+  border-radius: 999px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.notice,
+.metric,
+.table-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 1px 2px rgb(16 24 40 / 6%);
+}
+
+.notice {
+  margin-bottom: 20px;
+  border-left: 5px solid var(--warning);
+  padding: 24px;
+}
+
+.notice__label {
+  margin-bottom: 8px;
+  color: var(--warning);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.notice h2 {
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.notice p:last-child {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metric {
+  display: grid;
+  gap: 10px;
+  min-height: 142px;
+  padding: 20px;
+}
+
+.metric__label,
+.metric__note,
+.table-panel__header p {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.metric strong {
+  font-size: 2rem;
   line-height: 1;
 }
 
-.summary {
-  max-width: 34rem;
-  margin: 1.5rem 0 0;
-  color: var(--muted);
+.table-panel {
+  overflow: hidden;
+}
+
+.table-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px;
+}
+
+.table-panel__header h2 {
   font-size: 1.125rem;
-  line-height: 1.6;
+}
+
+.empty-table {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  padding: 32px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 20px;
+  }
+
+  .dashboard__header,
+  .table-panel__header {
+    display: grid;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-badge {
+    width: fit-content;
+  }
 }
