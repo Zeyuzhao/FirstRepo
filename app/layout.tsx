@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "FirstRepo",
-  description: "A new Next.js application.",
+  description: "A clean Next.js starter application.",
 };
 
 export default function RootLayout({
