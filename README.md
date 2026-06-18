@@ -3,6 +3,8 @@ FirstRepo
 
 This is a Next.js application.
 
+Staging auth smoke test: bot identity fallback check 4626w7.
+
 ## Getting Started
 
 Install dependencies:
