@@ -22,3 +22,5 @@ Build for production:
 ```bash
 npm run build
 ```
+
+Note: This is a Jiro staging PR identity attribution smoke test.
