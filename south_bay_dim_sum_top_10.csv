@@ -1,0 +1,11 @@
+maps_result_rank,restaurant,rating,review_count,price_range,address,comment_excerpt,comment_source
+1,Meimei Dumpling,4.9,229,$10-20,"117 Paseo de San Antonio, San Jose, CA 95112","Fresh dumplings with thin wrappers and juicy filling.",Google Maps review
+2,Hing Kee Dimsum & BBQ,4.7,14,$10-20,"6033 Snell Ave, San Jose, CA","Very authentic Hong Kong style dim sum!",Google Maps result review snippet
+3,Dough Zone Dumpling House South San Jose,4.2,280,$10-20,"5130 Cherry Ave #30, San Jose, CA","The flavor was nice and complex and they're juicy like the Xiao Long Bao.",Google Maps result review snippet
+4,Tai Pan Dim Sum,3.7,291,$10-20,"1070 Story Rd, San Jose, CA","The dumplings are large and stuffed full!",Google Maps result review snippet
+5,Jade Cathay Chinese Restaurant,4.0,900,$10-20,"1339 N First St, San Jose, CA","Delicious dim sum and attentive service.",Google Maps result review snippet
+6,Serious Dumpling,4.0,378,$20-30,"49 N San Pedro St, San Jose, CA","Dumplings were flavorful, inventive and well made.",Google Maps result review snippet
+7,Ocean Delight,4.0,562,$20-30,"5400 Monterey Rd, San Jose, CA","Surprisingly their dim sum dishes were of high quality and authentic.",Google Maps result review snippet
+8,Dynasty Chinese Cuisine,4.0,561,$10-60,"1001 Story Rd, San Jose, CA","Convenient, rarely a wait, and very good dim sum.",Google Maps result review snippet
+9,New Hwong Kok,4.1,185,$10-20,"2854 S White Rd, San Jose, CA 95148","Porridge, dim sum, noodles, sweets, and small savory items to choose from.",Google Maps review summary
+10,Dim Sum,2.3,3,,"2850 Quimby Rd #125, San Jose, CA 95148","Service: 2",Google Maps review
